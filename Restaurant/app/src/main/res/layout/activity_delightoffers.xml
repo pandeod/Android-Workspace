@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.onkarpande.restaurant.delightoffers">
+
+    <EditText
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText"
+        android:layout_alignParentTop="true"
+        android:layout_toStartOf="@+id/button"
+        android:layout_marginEnd="18dp"
+        android:layout_marginTop="98dp" />
+    <Button
+        android:text="Apply Coupon"
+        android:padding="10dp"
+        android:background="@color/menuName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="83dp"
+        android:id="@+id/button"
+        android:layout_alignTop="@+id/editText"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:background="@color/offerbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:text="OFFERS"
+        android:padding="10dp"
+        android:textSize="18sp"
+        android:id="@+id/textView1" />
+    <TextView
+        android:text="@string/of1"
+        android:textSize="15sp"
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView1"
+        android:layout_alignParentStart="true"
+        android:id="@+id/textView2" />
+    <TextView
+        android:text="@string/of2"
+        android:textSize="15sp"
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView2"
+        android:layout_alignParentStart="true"
+        android:id="@+id/textView3" />
+    <TextView
+        android:text="@string/of3"
+        android:textSize="15sp"
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView3"
+        android:layout_alignParentStart="true"
+        android:id="@+id/textView4" />
+    <TextView
+        android:text="@string/of4"
+        android:textSize="15sp"
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView4"
+        android:layout_alignParentStart="true"
+        android:id="@+id/textView5" />
+    <TextView
+        android:text="@string/of5"
+        android:textSize="15sp"
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView5"
+        android:layout_alignParentStart="true"
+        android:id="@+id/textView6" />
+</RelativeLayout>

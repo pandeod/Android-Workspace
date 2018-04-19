@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#8b5a2b</color>
+    <color name="colorPrimaryDark">#d2a679</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="header">#ffd9b3</color>
+    <color name="title">#8b5a2b</color>
+    <color name="menuName">#66ccff</color>
+    <color name="offerbar">#d9d9d9</color>
+</resources>

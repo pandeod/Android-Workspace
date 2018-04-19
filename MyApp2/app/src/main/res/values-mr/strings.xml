@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<resources>
+    <string name="app_name">बिलिंग मशीन</string>
+    <string name="q">प्रमाण</string>
+    <string name="top">टॉपिंग्ज</string>
+    <string name="price">ऑर्डर सारांश </string>
+    <string name="units">0</string>
+    <string name="topping1">व्हीप्ड क्रीम</string>
+    <string name="topping2">चॉकोलेट</string>
+    <string name="order">ऑर्डर</string>
+    <string name="mail">ईमेल</string>
+    <string name="plus">+</string>
+    <string name="minus">-</string>
+    <string name="t">एकूण</string>
+    <string name="n">नाव</string>
+    <string name="w_add">व्हीप्ड क्रीम जोडले</string>
+    <string name="c_add">चॉकोलेट जोडले</string>
+    <string name="yes">होय</string>
+    <string name="no">नाही</string>
+    <string name="thanks">धन्यवाद</string>
+    <string name="your_order">आपली कॉफी ऑर्डर</string>
+    <string name="dear">प्रिय</string>
+    <string name="ele">घटक जोडले</string>
+    <string name="y_n">होय/नाही</string>
+</resources>

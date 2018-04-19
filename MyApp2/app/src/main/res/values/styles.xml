@@ -1,0 +1,31 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">#00796B</item>
+        <item name="colorPrimaryDark">#009688</item>
+        <item name="colorButtonNormal">#00796B</item>
+        <item name="colorAccent">#000000</item>
+    </style>
+    <style name="commanText" parent="@style/TextAppearance.AppCompat.Medium">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">#000000</item>
+        <item name="android:layout_marginLeft">10dp</item>
+    </style>
+    <style name="lastButtons" parent="@style/TextAppearance.AppCompat.Medium">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:padding">12dp</item>
+        <item name="android:layout_margin">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+    <style name="increButtons" parent="@style/TextAppearance.AppCompat.Medium">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+</resources>

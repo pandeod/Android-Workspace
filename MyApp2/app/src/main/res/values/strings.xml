@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<resources>
+    <string name="app_name">Billing Machine</string>
+    <string name="q">Quantity</string>
+    <string name="top">Toppings</string>
+    <string name="price">Order Summary </string>
+    <string name="units">0</string>
+    <string name="topping1">Whipped Cream</string>
+    <string name="topping2">Chocolate</string>
+    <string name="order">Order</string>
+    <string name="mail">Email</string>
+    <string name="plus">+</string>
+    <string name="minus">-</string>
+    <string name="t">Total</string>
+    <string name="n">Name</string>
+    <string name="w_add">Is Whipped Cream added ?</string>
+    <string name="c_add">Is Chocolate added ?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="thanks">Thank You</string>
+    <string name="your_order">Your coffee order</string>
+    <string name="dear">Dear</string>
+    <string name="ele">Elements added</string>
+    <string name="y_n">Yes/No</string>
+</resources>
