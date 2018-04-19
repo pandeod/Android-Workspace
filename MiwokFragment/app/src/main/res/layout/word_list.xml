@@ -1,0 +1,60 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:layout_margin="0dp"
+android:orientation="horizontal"
+android:padding="0dp">
+
+<ImageView
+    android:id="@+id/word_img"
+    android:layout_width="80dp"
+    android:layout_height="80dp"
+    android:layout_margin="0dp"
+    android:padding="10dp"
+    android:layout_weight="0"
+    android:scaleType="centerCrop"
+    />
+
+<LinearLayout
+    android:id="@+id/list_container"
+    android:layout_width="wrap_content"
+    android:layout_height="80dp"
+    android:layout_weight="1"
+    android:layout_margin="0dp"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/e_word"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:textColor="#ffffff"
+        android:paddingLeft="20dp"
+        android:paddingTop="15dp"
+        android:textSize="20dp"
+        tools:text="one" />
+
+    <TextView
+        android:id="@+id/m_word"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:textColor="#ffffff"
+        android:layout_weight="1"
+        android:paddingLeft="20dp"
+        android:paddingBottom="15dp"
+        android:textSize="20dp"
+        tools:text="two" />
+</LinearLayout>
+
+<ImageView
+    android:id="@+id/word_playButton"
+    android:layout_width="80dp"
+    android:layout_height="80dp"
+    android:layout_margin="0dp"
+    android:padding="10dp"
+    android:layout_weight="0"
+    android:scaleType="centerCrop"
+   />
+
+</LinearLayout>

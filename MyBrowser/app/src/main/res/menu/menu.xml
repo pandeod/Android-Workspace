@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+ <item
+     android:id="@+id/setting"
+     android:title="setting"
+     app:showAsAction="never"></item>
+ <item
+     android:id="@+id/github"
+     android:title="github"
+     app:showAsAction="never"></item>
+ <item
+     android:id="@+id/w3school"
+     android:title="w3school"
+     app:showAsAction="never"></item>
+ <item
+     android:id="@+id/javatpoint"
+     android:title="javaTpoint"
+     app:showAsAction="never"></item>
+
+</menu>

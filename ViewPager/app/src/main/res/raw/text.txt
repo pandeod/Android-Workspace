@@ -1,0 +1,17 @@
+* Organic:
+-well understood application program,
+-size of the development team is reasonably small,
+-team members are experienced in developing similar types
+  of projects.
+
+* Semidetached:
+-mixture of experienced and inexperienced staff.
+-Team members may have limited experience on related systems
+  but may be unfamiliar with some aspects of the system being 
+  developed.
+
+*Embedded:
+- if the software being developed is strongly coupled to complex
+  hardware,
+  --OR--
+ if there are strict regulations on the operational procedures.

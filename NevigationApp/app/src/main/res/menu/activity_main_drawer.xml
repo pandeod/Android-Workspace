@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_itc"
+            android:icon="@drawable/folder_img"
+            android:title="ITC" />
+        <item
+            android:id="@+id/nav_oose"
+            android:icon="@drawable/folder_img"
+            android:title="OOSE" />
+        <item
+            android:id="@+id/nav_ad"
+            android:icon="@drawable/folder_img"
+            android:title="AD" />
+        <item
+            android:id="@+id/nav_os"
+            android:icon="@drawable/folder_img"
+            android:title="OS" />
+        <item
+            android:id="@+id/nav_cg"
+            android:icon="@drawable/folder_img"
+            android:title="CG" />
+    </group>
+
+    <item android:title="Communicate">
+        <menu>
+            <item
+                android:id="@+id/nav_share"
+                android:icon="@drawable/ic_menu_share"
+                android:title="Share" />
+            <item
+                android:id="@+id/nav_send"
+                android:icon="@drawable/ic_menu_send"
+                android:title="Send" />
+        </menu>
+    </item>
+
+</menu>
