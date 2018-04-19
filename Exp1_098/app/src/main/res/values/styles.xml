@@ -1,0 +1,44 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:colorForeground">@color/title</item>
+    </style>
+
+    <style name="nav_tabs">
+         <item name="android:padding">10dp</item>
+        <item name="android:layout_margin">10dp</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:elevation">5dp</item>
+        <item name="android:background">@drawable/wooden_board</item>
+    </style>
+
+    <style name="menulist_tab">
+        <item name="android:paddingTop">10dp</item>
+        <item name="android:paddingBottom">10dp</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+
+    <style name="menulist_tab.blue_tab">
+        <item name="android:background">@color/menuName</item>
+    </style>
+
+    <style name="offers_tab">
+        <item name="android:layout_alignParentStart">true</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <style name="ontouchStyle" parent="@android:style/Theme.Holo">
+        <item name="android:background">@drawable/background_style</item>
+    </style>
+    <style name="onUpStyle" parent="@android:style/Theme.Black">
+        <item name="android:background">#9999ff</item>
+    </style>
+</resources>

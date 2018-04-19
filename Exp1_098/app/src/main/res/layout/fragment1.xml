@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@drawable/background_style"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <TextView
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:fontFamily="sans-serif-condensed"
+    android:gravity="center"
+    android:padding="10dp"
+    android:text="Todays Special"
+    android:textColor="@android:color/black"
+    android:textSize="40dp" />
+
+    <ImageView
+    android:src="@drawable/food"
+        android:id="@+id/imageFood"
+    android:layout_marginTop="80dp"
+    android:layout_width="wrap_content"
+    android:layout_height="fill_parent" />
+
+    <TextView
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="100dp"
+    android:fontFamily="sans-serif-condensed"
+    android:gravity="center"
+    android:padding="10dp"
+    android:text="Shahi Soup"
+    android:textColor="@android:color/black"
+    android:textSize="30dp" />
+
+    </FrameLayout>
+</LinearLayout>

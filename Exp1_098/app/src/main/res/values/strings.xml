@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Restuarant Management</string>
+    <string name="foodDelight">Food Delight</string>
+    <string name="today">Today\'s Special</string>
+    <string name="menu">Menu</string>
+    <string name="offers">Delight Offers</string>
+    <string name="letsOrder">Let\'s Order</string>
+    <string name="of1">Get Upto 57 Off Extra 25 Cashback On Food, Drinks and Movie </string>
+    <string name="of2">Now Get Every Food Order At Flat Rs.99 On Box8</string>
+    <string name="of3">Now Get Free Saucy Wrap/Mc-Aloo/Mc-Egg On Online Order</string>
+    <string name="of4">Now Get Flat 33 Off On Food Order At Swiggy. </string>
+    <string name="of5">Grab This Take Away Deal By Pizza Hut</string>
+    <string name="appwidget_text">EXAMPLE</string>
+    <string name="configure">Redeam Your Coupon</string>
+    <string name="add_widget">Redeam</string>
+</resources>
