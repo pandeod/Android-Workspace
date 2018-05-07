@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu
     xmlns:android="http://schemas.android.com/apk/res/android">
-  <item android:id="@+id/home"
-      android:title="home">
+  <item
+      android:id="@+id/home"
+      android:title="home"></item>
+  <item android:id="@+id/setting"
+      android:title="setting">
   </item>
-    <item android:id="@+id/setting"
-        android:title="setting">
-    </item>
-    <item android:id="@+id/log"
+  <item android:id="@+id/log"
         android:title="logOut">
     </item>
 </menu>
