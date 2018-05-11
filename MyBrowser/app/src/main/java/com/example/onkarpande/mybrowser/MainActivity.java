@@ -17,6 +17,9 @@ import android.webkit.WebViewClient;
 import android.widget.EditText;
 import android.widget.ImageView;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -28,22 +31,32 @@ public class MainActivity extends AppCompatActivity {
         final String url="https://www.google.co.in/?gfe_rd=cr&dcr=0&ei=SwixWvyiKqemX5XYnoAM&gws_rd=ssl";
         loadWebView(url);
 
-        EditText searchText =  findViewById(R.id.search_box);
+        final EditText searchText =  findViewById(R.id.search_box);
         ImageView menuButton =findViewById(R.id.menu_button);
         ImageView searchButton=findViewById(R.id.search_button);
         ImageView homeButton=findViewById(R.id.menu_home);
+
 
         searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
+                String query =searchText.getText().toString();
+                String escapedQuery = null;
+                try {
+                    escapedQuery = URLEncoder.encode(query, "UTF-8");
+                } catch (UnsupportedEncodingException e) {
+                    e.printStackTrace();
+                }
+                String uri = "http://www.google.com/#q=" + escapedQuery;
+                loadWebView(uri);
             }
         });
 
         homeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                loadWebView(url);
+               loadWebView(url);
             }
         });
 
