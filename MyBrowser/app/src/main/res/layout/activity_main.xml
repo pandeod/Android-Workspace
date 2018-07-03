@@ -12,12 +12,12 @@
         android:padding="10dp"
         android:background="#cccccc"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+            android:layout_height="wrap_content">
         <LinearLayout
             android:background="#ffffff"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-            <EditText
+            <AutoCompleteTextView
                 android:id="@+id/search_box"
                 android:maxLines="1"
                 android:inputType="text"
@@ -28,7 +28,9 @@
                 android:paddingBottom="5dp"
                 android:paddingLeft="10dp"
                 android:layout_width="0dp"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent">
+                <requestFocus/>
+            </AutoCompleteTextView>
             <ImageView
                 android:id="@+id/search_button"
                 android:paddingLeft="5dp"
@@ -58,5 +60,5 @@
         android:id="@+id/webview"
         android:layout_width="match_parent"
         android:layout_weight="1"
-        android:layout_height="0dp"></WebView>
+        android:layout_height="0dp"/>
 </LinearLayout>

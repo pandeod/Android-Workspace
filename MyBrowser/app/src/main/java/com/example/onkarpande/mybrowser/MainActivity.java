@@ -14,6 +14,8 @@ import android.view.ViewGroup;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
 import android.widget.ImageView;
 
@@ -21,6 +23,10 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 
 public class MainActivity extends AppCompatActivity {
+
+    private static final String[] COUNTRIES = new String[] {
+            "Belgium", "France", "Italy", "Germany", "Spain"
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +41,14 @@ public class MainActivity extends AppCompatActivity {
         ImageView menuButton =findViewById(R.id.menu_button);
         ImageView searchButton=findViewById(R.id.search_button);
         ImageView homeButton=findViewById(R.id.menu_home);
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_dropdown_item_1line, COUNTRIES);
+
+        AutoCompleteTextView textView = (AutoCompleteTextView)
+                findViewById(R.id.search_box);
+
+        textView.setAdapter(adapter);
 
 
         searchButton.setOnClickListener(new View.OnClickListener() {

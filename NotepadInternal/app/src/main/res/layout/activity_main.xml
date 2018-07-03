@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    tools:context=".MainActivity">
+
+    <EditText
+        android:hint="Enter File Name"
+        android:gravity="start"
+        android:id="@+id/file_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <EditText
+        android:layout_weight="1"
+        android:hint="Enter Text"
+        android:id="@+id/file_text"
+        android:gravity="start"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_margin="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:layout_width="160dp"
+            android:id="@+id/save"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:text="Save File" />
+
+        <Button
+            android:layout_width="160dp"
+            android:id="@+id/read"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:text="Read File" />
+    </LinearLayout>
+    <TextView
+        android:id="@+id/readMsg"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>
