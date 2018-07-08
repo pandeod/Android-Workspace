@@ -25,6 +25,9 @@ public class MainActivity extends AppCompatActivity {
             orderItems.add(od);
         }
 
+        BackgroundWorker backgroundWorker=new BackgroundWorker(getApplicationContext());
+        backgroundWorker.execute("getOrder");
+
         recyclerView=findViewById(R.id.recycler_view);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));

@@ -1,7 +1,9 @@
 package com.example.onkarpande.mp_project.Activity;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -72,6 +74,7 @@ public class HistoryFragment extends Fragment {
             lt.setVisibility(GONE);
         }
         return root;
+
     }
 
     public void setRecyclerAdapter(List<ItemMenu> orderIms)
@@ -107,6 +110,7 @@ public class HistoryFragment extends Fragment {
         @Override
         public void onBindViewHolder(OrderAdapter.ViewHolder holder, int position) {
             ItemMenu orderMenu=orderMenus.get(position);
+           // holder.mUser.setText("Order @ "+getUserName());
             holder.mName.setText(orderMenu.getName());
             holder.mPrice.setText(orderMenu.getPrice()+" ₹");
             holder.mQuantity.setText(""+orderMenu.getQuantity());
@@ -119,6 +123,7 @@ public class HistoryFragment extends Fragment {
 
         class ViewHolder extends RecyclerView.ViewHolder{
 
+            TextView mUser;
             TextView mPrice;
             TextView mName;
             TextView mQuantity;

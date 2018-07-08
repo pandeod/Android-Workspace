@@ -1,6 +1,9 @@
 package com.example.onkarpande.mp_project;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -52,6 +55,7 @@ public class LogInActivity extends AppCompatActivity {
                 if(opr)
                 {
                     //showMessage("Successful !","Log In Successful !!!");
+                    setUserName(uEmail);
                     startActivity(new Intent(getApplicationContext(), HomeActivity.class));
                 }
                 else
@@ -71,4 +75,12 @@ public class LogInActivity extends AppCompatActivity {
         //builder.setPositiveButton("ok",null);
         builder.show();
     }
+    public void setUserName(String name)
+    {
+        SharedPreferences appSharedPrefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        SharedPreferences.Editor prefsEditor = appSharedPrefs.edit();
+        prefsEditor.putString("user",name);
+        prefsEditor.apply();
+    }
+
 }

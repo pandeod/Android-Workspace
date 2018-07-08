@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tool="http://schemas.android.com/apk/res-auto"
     tools:context=".Activity.CartFragment">
 
     <LinearLayout
@@ -20,7 +21,13 @@
         android:layout_margin="0dp"
         android:layout_gravity="top"
         android:text="Order" />
-
+    <TextView
+        android:id="@+id/total_order"
+        android:text="Order Total"
+        android:gravity="center"
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_view_cart"
         android:layout_width="match_parent"

@@ -1,22 +1,27 @@
 package com.example.onkarpande.mp_project.Activity;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.example.onkarpande.mp_project.Adapter.BackgroundWorker;
 import com.example.onkarpande.mp_project.Entity.ItemMenu;
 import com.example.onkarpande.mp_project.R;
 
@@ -25,8 +30,10 @@ import java.util.List;
 public class CartFragment extends Fragment {
 
     private RecyclerView recyclerView;
+    private Button order;
     private RecyclerView.Adapter adapter;
     private List<ItemMenu> itemMenus;
+    private TextView total_order;
 
     public CartFragment() {
         // Required empty public constructor
@@ -53,7 +60,8 @@ public class CartFragment extends Fragment {
 
         setRecyclerAdapter(itemMenus);
 
-        Button order=root.findViewById(R.id.order_btn);
+        order=root.findViewById(R.id.order_btn);
+        total_order=root.findViewById(R.id.total_order);
 
         order.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,7 +70,16 @@ public class CartFragment extends Fragment {
                 if(itms!=null)
                 {
                     ((HomeActivity)getContext()).setOrderFragment(itms);
-                    Toast.makeText(getContext(),"Order has been placed , see History ...",Toast.LENGTH_SHORT).show();
+                    BackgroundWorker backgroundWorker=new BackgroundWorker(getContext());
+                    String order="";
+                    for(ItemMenu x:itms)
+                    {
+                        order+=x.getName()+"  Q: "+x.getQuantity()+"\n";
+                    }
+                    String type="placeOrder";
+                    String user=getUserName();
+                    backgroundWorker.execute(type,user,order);
+                    //Toast.makeText(getContext(),"Order has been placed , see History ...",Toast.LENGTH_SHORT).show();
                 }
                 else
                 {
@@ -92,8 +109,20 @@ public class CartFragment extends Fragment {
         else
         {
             adapter=new CartAdapter(cartItemList,getContext());
+            int grandTotal=0;
+            for(ItemMenu itm:cartItemList)
+            {
+                grandTotal+=Integer.parseInt(itm.getPrice())*itm.getQuantity();
+            }
+            //total_order.setText("Place order of"+grandTotal+" ₹");
             recyclerView.setAdapter(adapter);
         }
+    }
+
+    public String getUserName()
+    {
+        SharedPreferences appSharedPrefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        return appSharedPrefs.getString("user", "");
     }
 
     class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
