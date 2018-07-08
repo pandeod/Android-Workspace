@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.HistoryFragment">
+
+    <TextView
+        android:id="@+id/dev_credits"
+        android:text="Developed By ONKAR PANDE (1514098) under MP Mini Project"
+        android:layout_gravity="bottom"
+        android:gravity="center"
+        android:padding="10dp"
+        android:textSize="16sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <LinearLayout
+        android:id="@+id/show_order"
+        android:background="#fff"
+        android:layout_margin="20dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:text="Your Order"
+            android:padding="10dp"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:textColor="#fff"
+            android:background="@color/colorPrimary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/menu_name"
+                android:padding="5dp"
+                android:textSize="17sp"
+                android:text="Menu"
+                android:gravity="left"
+                android:layout_width="160dp"
+                android:layout_height="match_parent" />
+            <TextView
+                android:id="@+id/menu_price"
+                android:text="Price"
+                android:padding="5dp"
+                android:textSize="17sp"
+                android:gravity="left"
+                android:layout_width="80dp"
+                android:layout_height="match_parent" />
+            <TextView
+                android:id="@+id/menu_qt"
+                android:text="Quantity"
+                android:padding="5dp"
+                android:textSize="17sp"
+                android:gravity="left"
+                android:layout_width="80dp"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/order_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        </android.support.v7.widget.RecyclerView>
+        <TextView
+            android:id="@+id/grand_total"
+            android:text="Grand Total"
+            android:padding="10dp"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:textColor="#fff"
+            android:background="@color/colorPrimary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+</FrameLayout>
