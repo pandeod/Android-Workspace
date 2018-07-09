@@ -74,7 +74,7 @@ public class CartFragment extends Fragment {
                     String order="";
                     for(ItemMenu x:itms)
                     {
-                        order+=x.getName()+"  Q: "+x.getQuantity()+"\n";
+                        order+=x.getName()+"  Q:"+x.getQuantity()+"\n";
                     }
                     String type="placeOrder";
                     String user=getUserName();

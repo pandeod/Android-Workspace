@@ -9,7 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,13 +35,15 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder>{
 
     @Override
     public void onBindViewHolder(@NonNull final OrderAdapter.ViewHolder holder, final int position) {
-        OrderItem orderItem=orderItems.get(position);
+        final OrderItem orderItem=orderItems.get(position);
+
         holder.tableNo.setText(orderItem.getTableNo());
         holder.orderItm.setText(orderItem.getOrder());
         holder.remove.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                holder.orderItm.setBackgroundColor(Color.GREEN);
+                BackgroundWorker backgroundWorker=new BackgroundWorker(context);
+                backgroundWorker.execute("deleteOrder",orderItem.getId());
             }
         });
     }

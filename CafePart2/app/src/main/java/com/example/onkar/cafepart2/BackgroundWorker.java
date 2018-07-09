@@ -3,6 +3,8 @@ package com.example.onkar.cafepart2;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.os.AsyncTask;
+import android.widget.Toast;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -14,7 +16,6 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
-
 
 public class BackgroundWorker extends AsyncTask<String,Void,String> {
 
@@ -28,12 +29,14 @@ public class BackgroundWorker extends AsyncTask<String,Void,String> {
     @Override
     protected String doInBackground(String... voids) {
         String type=voids[0];
-        String login_url="https://vedh.000webhostapp.com/connect/getOrder.php";
+        String login_url="https://vedh.000webhostapp.com/connect/deleteOrder.php";
 
-        if(type.equals("getOrder"))
+        if(type.equals("deleteOrder"))
         {
             try
             {
+                String order_id=voids[1];
+
                 URL url=new URL(login_url);
                 HttpURLConnection httpURLConnection=(HttpURLConnection)url.openConnection();
                 httpURLConnection.setRequestMethod("POST");
@@ -41,7 +44,7 @@ public class BackgroundWorker extends AsyncTask<String,Void,String> {
                 httpURLConnection.setDoInput(true);
                 OutputStream outputStream=httpURLConnection.getOutputStream();
                 BufferedWriter bufferedWriter=new BufferedWriter(new OutputStreamWriter(outputStream,"UTF-8"));
-                String post_data= URLEncoder.encode("get_data","UTF-8")+"="+URLEncoder.encode("get_data","UTF-8");
+                String post_data= URLEncoder.encode("order_id","UTF-8")+"="+URLEncoder.encode(order_id,"UTF-8");
                 bufferedWriter.write(post_data);
                 bufferedWriter.flush();
                 bufferedWriter.close();
@@ -71,15 +74,16 @@ public class BackgroundWorker extends AsyncTask<String,Void,String> {
     @Override
     protected void onPreExecute() {
         super.onPreExecute();
-        alertDialog =new AlertDialog.Builder(context).create();
-        alertDialog.setTitle("Placing Order ....");
+//        alertDialog =new AlertDialog.Builder(context).create();
+//        alertDialog.setTitle("Placing Order ....");
     }
 
     @Override
     protected void onPostExecute(String result) {
         super.onPostExecute(result);
-        alertDialog.setMessage(result);
-        alertDialog.show();
+        Toast.makeText(context,result,Toast.LENGTH_SHORT).show();
+//        alertDialog.setMessage(result);
+//        alertDialog.show();
     }
 
     @Override
@@ -87,32 +91,3 @@ public class BackgroundWorker extends AsyncTask<String,Void,String> {
         super.onProgressUpdate(values);
     }
 }
-
-
-/*
-    getOrder.php
-    <?php
-	require "connect.php";
-	$getData=$_POST["get_data"];
-
-	if($getData=="get_data")
-	{
-		$query="select * from`orders`";
-		$result=mysqli_query($db,$query);
-		$rows=array();
-		if($result)
-		{
-			while($r=mysqli_fetch_assoc($result))
-			{
-				$rows[]=$r;
-			}
-			echo json_encode($rows);
-		}
-		else
-		{
-			echo "Error...";
-		}
-	}
-?>
-
- */

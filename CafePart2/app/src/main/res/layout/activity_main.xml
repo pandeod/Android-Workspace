@@ -19,9 +19,9 @@
             android:textColor="#fff"
             android:textSize="18sp"
             android:layout_height="45dp"
-            android:layout_margin="0dp"
+            android:layout_margin="10dp"
             android:layout_gravity="top"
-            android:text="Order Arrived" />
+            android:text="Sync Orders" />
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/recycler_view"
@@ -30,6 +30,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
         </android.support.v7.widget.RecyclerView>
+
+        <!--<ListView-->
+            <!--android:id="@+id/listView"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content">-->
+        <!--</ListView>-->
 
     </LinearLayout>
 

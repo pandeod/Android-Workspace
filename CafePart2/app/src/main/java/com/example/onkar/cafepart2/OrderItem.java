@@ -1,16 +1,16 @@
 package com.example.onkar.cafepart2;
 
 public class OrderItem {
+    String id;
     String tableNo;
     String order;
-    int status;
+    String status;
 
-    public OrderItem()
-    {
-
+    public OrderItem() {
     }
 
-    public OrderItem(String tableNo, String order, int status) {
+    public OrderItem(String id, String tableNo, String order, String status) {
+        this.id = id;
         this.tableNo = tableNo;
         this.order = order;
         this.status = status;
@@ -32,11 +32,15 @@ public class OrderItem {
         this.order = order;
     }
 
-    public int getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(int status) {
+    public String getId() {
+        return id;
+    }
+
+    public void setStatus(String status) {
         this.status = status;
     }
 }
