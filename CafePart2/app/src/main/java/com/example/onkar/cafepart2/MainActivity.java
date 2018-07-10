@@ -1,6 +1,7 @@
 package com.example.onkar.cafepart2;
 
 import android.os.AsyncTask;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -38,7 +39,12 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
 
+        AlertDialog.Builder builder= new AlertDialog.Builder(getApplicationContext());
+
+        builder.setMessage("Welcome ...");
+
         getJSON();
+
         Button btn=findViewById(R.id.order_btn);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override

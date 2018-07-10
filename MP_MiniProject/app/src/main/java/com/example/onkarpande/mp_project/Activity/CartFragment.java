@@ -74,12 +74,11 @@ public class CartFragment extends Fragment {
                     String order="";
                     for(ItemMenu x:itms)
                     {
-                        order+=x.getName()+"  Q:"+x.getQuantity()+"\n";
+                        order+=">> "+x.getName()+"\t\tQ:"+x.getQuantity()+"\n";
                     }
                     String type="placeOrder";
                     String user=getUserName();
                     backgroundWorker.execute(type,user,order);
-                    //Toast.makeText(getContext(),"Order has been placed , see History ...",Toast.LENGTH_SHORT).show();
                 }
                 else
                 {
