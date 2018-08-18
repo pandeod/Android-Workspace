@@ -75,7 +75,6 @@ public class HomeActivity extends AppCompatActivity {
         List<ItemMenu> itemMenus= gson.fromJson(json, type);
 
         return itemMenus;
-
     }
     public void setDefaults(ItemMenu itemMenu)
     {
@@ -162,4 +161,5 @@ public class HomeActivity extends AppCompatActivity {
 
         return itemOrders;
     }
+
 }

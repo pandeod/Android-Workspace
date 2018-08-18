@@ -89,6 +89,8 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.ViewHolder> {
 //                    Intent intent=new Intent(Intent.ACTION_VIEW);
 //                    intent.setData(Uri.parse(mId));
 //                    itemView.getContext().startActivity(intent);
+                    cart.setText("Added to cart");
+                    cart.setBackgroundColor(context.getResources().getColor(R.color.green));
                     ((HomeActivity)context).setDefaults(itm);
                 }
             });

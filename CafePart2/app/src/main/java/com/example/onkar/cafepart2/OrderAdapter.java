@@ -44,6 +44,19 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder>{
             public void onClick(View v) {
                 BackgroundWorker backgroundWorker=new BackgroundWorker(context);
                 backgroundWorker.execute("deleteOrder",orderItem.getId());
+                holder.given.setBackgroundColor(context.getResources().getColor(R.color.green));
+            }
+        });
+        holder.preprocess.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                holder.given.setBackgroundColor(context.getResources().getColor(R.color.yellow));
+            }
+        });
+        holder.cancelled.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                holder.given.setBackgroundColor(context.getResources().getColor(R.color.red));
             }
         });
     }
@@ -58,11 +71,17 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder>{
         TextView tableNo;
         TextView orderItm;
         ImageButton remove;
+        ImageButton preprocess;
+        ImageButton cancelled;
+        View given;
         public ViewHolder(View itemView) {
             super(itemView);
             tableNo=itemView.findViewById(R.id.table_no);
             orderItm=itemView.findViewById(R.id.order_items);
             remove=itemView.findViewById(R.id.remove_btn);
+            preprocess=itemView.findViewById(R.id.processing_btn);
+            cancelled=itemView.findViewById(R.id.cancel_btn);
+            given=itemView;
         }
     }
 }

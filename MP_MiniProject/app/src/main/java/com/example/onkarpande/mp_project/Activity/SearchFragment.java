@@ -1,8 +1,10 @@
 package com.example.onkarpande.mp_project.Activity;
 
 import android.app.ProgressDialog;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
@@ -23,11 +25,14 @@ import com.example.onkarpande.mp_project.Entity.ItemMenu;
 import com.example.onkarpande.mp_project.Entity.JSONParser;
 import com.example.onkarpande.mp_project.Entity.MenuList;
 import com.example.onkarpande.mp_project.R;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -59,13 +64,16 @@ public class SearchFragment extends Fragment implements SearchView.OnQueryTextLi
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
         itemMenus=new ArrayList<>();
+
         adapter=new MenuAdapter(itemMenus,getContext());
-
-       // itemMenus.add(new ItemMenu("1","First Item","$123",""));
-
         recyclerView.setAdapter(adapter);
 
-        new GetDataTask().execute();
+        if(getMenuItemsList()!=null)
+        {
+            new GetDataTask().execute();
+
+        }
+        setMenuItemsList(itemMenus);
 
         EditText searchText=root.findViewById(R.id.search_bar);
         searchText.addTextChangedListener(new TextWatcher() {
@@ -227,5 +235,26 @@ public class SearchFragment extends Fragment implements SearchView.OnQueryTextLi
                 Toast.makeText(getContext(),"No data Found",Toast.LENGTH_SHORT).show();
             }
         }
+    }
+
+    public void setMenuItemsList(List<ItemMenu> itemMenuWhole)
+    {
+        SharedPreferences appSharedPrefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        SharedPreferences.Editor prefsEditor = appSharedPrefs.edit();
+        Gson gson = new Gson();
+        String jsonCart= gson.toJson(itemMenuWhole);
+        prefsEditor.putString("MenuItemList", jsonCart);
+        prefsEditor.apply();
+    }
+
+    public List<ItemMenu> getMenuItemsList()
+    {
+        SharedPreferences appSharedPrefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        Gson gson = new Gson();
+        String json = appSharedPrefs.getString("MenuItemList","");
+        Type type = new TypeToken<List<ItemMenu>>(){}.getType();
+        List<ItemMenu> itemMenus= gson.fromJson(json, type);
+
+        return itemMenus;
     }
 }
