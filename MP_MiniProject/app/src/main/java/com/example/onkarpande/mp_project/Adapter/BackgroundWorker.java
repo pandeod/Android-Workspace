@@ -28,7 +28,7 @@ public class BackgroundWorker extends AsyncTask<String,Void,String> {
     @Override
     protected String doInBackground(String... voids) {
         String type=voids[0];
-        String login_url="https://vedh.000webhostapp.com/connect/placeorder.php";
+        String login_url="http://vedh.hostingerapp.com/connect/placeorder.php";
 
         if(type.equals("placeOrder"))
         {

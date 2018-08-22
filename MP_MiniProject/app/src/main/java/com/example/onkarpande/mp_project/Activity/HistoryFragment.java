@@ -93,7 +93,7 @@ public class HistoryFragment extends Fragment {
             @Override
             protected String doInBackground(Void... voids) {
                 try {
-                    URL url = new URL("https://vedh.000webhostapp.com/connect/getHistory.php");
+                    URL url = new URL("http://vedh.hostingerapp.com/connect/getHistory.php");
                     HttpURLConnection con = (HttpURLConnection) url.openConnection();
                     StringBuilder sb = new StringBuilder();
                     BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(con.getInputStream()));

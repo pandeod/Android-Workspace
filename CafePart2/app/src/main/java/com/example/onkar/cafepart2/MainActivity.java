@@ -77,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             protected String doInBackground(Void... voids) {
                 try {
-                    URL url = new URL("https://vedh.000webhostapp.com/connect/getOrder.php");
+                    URL url = new URL("http://vedh.hostingerapp.com/connect/getOrder.php");
                     HttpURLConnection con = (HttpURLConnection) url.openConnection();
                     StringBuilder sb = new StringBuilder();
                     BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(con.getInputStream()));
