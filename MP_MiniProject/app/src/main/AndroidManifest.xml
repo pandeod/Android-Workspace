@@ -29,6 +29,7 @@
 
         <activity
             android:name=".Activity.HomeActivity"
+            android:launchMode="singleInstance"
             android:theme="@style/AppFullScreenTheme"/>
 
     </application>

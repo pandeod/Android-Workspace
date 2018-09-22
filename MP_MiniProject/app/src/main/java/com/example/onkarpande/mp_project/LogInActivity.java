@@ -46,8 +46,10 @@ public class LogInActivity extends AppCompatActivity {
             public void onClick(View view) {
                 EditText ed1=findViewById(R.id.input_email);
                 EditText ed2=findViewById(R.id.input_password);
-                uEmail=ed1.getText().toString();
-                uPassword=ed2.getText().toString();
+                //uEmail=ed1.getText().toString();
+                //uPassword=ed2.getText().toString();
+                uEmail="onkar";
+                uPassword="12345";
                 if(TextUtils.isEmpty(uEmail)||TextUtils.isEmpty(uPassword))
                     opr=false;
                 else

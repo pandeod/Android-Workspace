@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
@@ -33,6 +34,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.lang.reflect.Type;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -50,6 +52,19 @@ public class SearchFragment extends Fragment implements SearchView.OnQueryTextLi
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        itemMenus=new ArrayList<>();
+
+        if(savedInstanceState==null)
+        {
+            new GetDataTask().execute();
+        }
+        else
+        {
+            Gson gson = new Gson();
+            String json = savedInstanceState.getString("MenuItemList","");
+            Type type = new TypeToken<List<ItemMenu>>(){}.getType();
+            itemMenus= gson.fromJson(json, type);
+        }
 
     }
 
@@ -57,23 +72,15 @@ public class SearchFragment extends Fragment implements SearchView.OnQueryTextLi
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+
         View root= inflater.inflate(R.layout.fragment_search, container, false);
 
         recyclerView=root.findViewById(R.id.recycler_view);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        itemMenus=new ArrayList<>();
-
         adapter=new MenuAdapter(itemMenus,getContext());
         recyclerView.setAdapter(adapter);
-
-        if(getMenuItemsList()!=null)
-        {
-            new GetDataTask().execute();
-
-        }
-        setMenuItemsList(itemMenus);
 
         EditText searchText=root.findViewById(R.id.search_bar);
         searchText.addTextChangedListener(new TextWatcher() {
@@ -95,6 +102,32 @@ public class SearchFragment extends Fragment implements SearchView.OnQueryTextLi
 
 
         return root;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        Gson gson = new Gson();
+        String jsonCart= gson.toJson(itemMenus);
+        outState.putString("MenuItemList", jsonCart);
+    }
+
+
+
+    @Override
+    public void onViewStateRestored(@Nullable Bundle savedInstanceState) {
+
+        super.onViewStateRestored(savedInstanceState);
     }
 
     @Override
@@ -147,6 +180,8 @@ public class SearchFragment extends Fragment implements SearchView.OnQueryTextLi
 
             dialog = new ProgressDialog(getContext());
             dialog.setTitle("Syncing...");
+            dialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+            dialog.setCancelable(false);
             dialog.show();
         }
 

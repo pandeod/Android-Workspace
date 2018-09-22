@@ -29,7 +29,7 @@ public class BackgroundWorker extends AsyncTask<String,Void,String> {
     @Override
     protected String doInBackground(String... voids) {
         String type=voids[0];
-        String login_url="https://vedh.hostingerapp.com/connect/deleteOrder.php";
+        String login_url="http://vedh.hostingerapp.com/connect/deleteOrder.php";
 
         if(type.equals("deleteOrder"))
         {
