@@ -1,6 +1,7 @@
 package com.example.onkarpande.mp_project.Adapter;
 
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
 
@@ -19,7 +20,7 @@ import java.net.URLEncoder;
 public class BackgroundWorker extends AsyncTask<String,Void,String> {
 
     Context context;
-    AlertDialog alertDialog;
+    ProgressDialog dialog;
 
     public BackgroundWorker(Context context) {
         this.context=context;
@@ -28,7 +29,7 @@ public class BackgroundWorker extends AsyncTask<String,Void,String> {
     @Override
     protected String doInBackground(String... voids) {
         String type=voids[0];
-        String login_url="http://vedh.hostingerapp.com/connect/placeorder.php";
+        String login_url="https://summarysite.000webhostapp.com/include/putOrder.php";
 
         if(type.equals("placeOrder"))
         {
@@ -43,7 +44,7 @@ public class BackgroundWorker extends AsyncTask<String,Void,String> {
                 httpURLConnection.setDoInput(true);
                 OutputStream outputStream=httpURLConnection.getOutputStream();
                 BufferedWriter bufferedWriter=new BufferedWriter(new OutputStreamWriter(outputStream,"UTF-8"));
-                String post_data= URLEncoder.encode("user_name","UTF-8")+"="+URLEncoder.encode(user_name,"UTF-8")+"&"
+                String post_data= URLEncoder.encode("user","UTF-8")+"="+URLEncoder.encode(user_name,"UTF-8")+"&"
                         +URLEncoder.encode("order","UTF-8")+"="+URLEncoder.encode(order,"UTF-8");
                 bufferedWriter.write(post_data);
                 bufferedWriter.flush();
@@ -74,13 +75,19 @@ public class BackgroundWorker extends AsyncTask<String,Void,String> {
     @Override
     protected void onPreExecute() {
         super.onPreExecute();
-        alertDialog =new AlertDialog.Builder(context).create();
-        alertDialog.setTitle("Placing Order ....");
+        dialog =new ProgressDialog(context);
+        dialog.setTitle("Placing Order ....");
+        dialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        dialog.setCancelable(false);
+        dialog.show();
     }
 
     @Override
     protected void onPostExecute(String result) {
         super.onPostExecute(result);
+        dialog.dismiss();
+        AlertDialog.Builder alertDialog= new AlertDialog.Builder(context);
+        alertDialog.setTitle("Placing Order ....");
         alertDialog.setMessage(result);
         alertDialog.show();
     }

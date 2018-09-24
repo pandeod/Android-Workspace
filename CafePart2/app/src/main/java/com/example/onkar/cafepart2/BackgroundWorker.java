@@ -20,7 +20,6 @@ import java.net.URLEncoder;
 public class BackgroundWorker extends AsyncTask<String,Void,String> {
 
     Context context;
-    AlertDialog alertDialog;
 
     public BackgroundWorker(Context context) {
         this.context=context;
@@ -29,13 +28,14 @@ public class BackgroundWorker extends AsyncTask<String,Void,String> {
     @Override
     protected String doInBackground(String... voids) {
         String type=voids[0];
-        String login_url="http://vedh.hostingerapp.com/connect/deleteOrder.php";
+        String login_url="https://summarysite.000webhostapp.com/include/changeStatus.php";
 
-        if(type.equals("deleteOrder"))
+        if(type.equals("changeStatus"))
         {
             try
             {
                 String order_id=voids[1];
+                String status=voids[2];
 
                 URL url=new URL(login_url);
                 HttpURLConnection httpURLConnection=(HttpURLConnection)url.openConnection();
@@ -44,7 +44,8 @@ public class BackgroundWorker extends AsyncTask<String,Void,String> {
                 httpURLConnection.setDoInput(true);
                 OutputStream outputStream=httpURLConnection.getOutputStream();
                 BufferedWriter bufferedWriter=new BufferedWriter(new OutputStreamWriter(outputStream,"UTF-8"));
-                String post_data= URLEncoder.encode("order_id","UTF-8")+"="+URLEncoder.encode(order_id,"UTF-8");
+                String post_data= URLEncoder.encode("order_id","UTF-8")+"="+URLEncoder.encode(order_id,"UTF-8")+"&"
+                        +URLEncoder.encode("status","UTF-8")+"="+URLEncoder.encode(status,"UTF-8");
                 bufferedWriter.write(post_data);
                 bufferedWriter.flush();
                 bufferedWriter.close();
@@ -74,16 +75,12 @@ public class BackgroundWorker extends AsyncTask<String,Void,String> {
     @Override
     protected void onPreExecute() {
         super.onPreExecute();
-//        alertDialog =new AlertDialog.Builder(context).create();
-//        alertDialog.setTitle("Placing Order ....");
     }
 
     @Override
     protected void onPostExecute(String result) {
         super.onPostExecute(result);
         Toast.makeText(context,result,Toast.LENGTH_SHORT).show();
-//        alertDialog.setMessage(result);
-//        alertDialog.show();
     }
 
     @Override

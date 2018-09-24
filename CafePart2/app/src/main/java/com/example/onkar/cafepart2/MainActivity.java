@@ -7,15 +7,10 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ListView;
-import android.widget.Toast;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
@@ -77,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             protected String doInBackground(Void... voids) {
                 try {
-                    URL url = new URL("http://vedh.hostingerapp.com/connect/getOrder.php");
+                    URL url = new URL("https://summarysite.000webhostapp.com/include/getPendingOrders.php");
                     HttpURLConnection con = (HttpURLConnection) url.openConnection();
                     StringBuilder sb = new StringBuilder();
                     BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(con.getInputStream()));
@@ -100,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
         orderItems.clear();
         for (int i = 0; i < jsonArray.length(); i++) {
             JSONObject obj = jsonArray.getJSONObject(i);
-            OrderItem orderItem=new OrderItem(obj.getString("id"),obj.getString("user"),obj.getString("order"),obj.getString("status"));
+            OrderItem orderItem=new OrderItem(obj.getString("order_id"),obj.getString("user"),obj.getString("ordered"),obj.getString("status"));
             orderItems.add(orderItem);
         }
         adapter=new OrderAdapter(orderItems,getApplicationContext());

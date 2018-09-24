@@ -39,23 +39,33 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder>{
 
         holder.tableNo.setText(orderItem.getTableNo());
         holder.orderItm.setText(orderItem.getOrder());
+
+        if(orderItem.getStatus().equals("1"))
+        {
+            holder.given.setBackgroundColor(context.getResources().getColor(R.color.yellow));
+        }
+
         holder.remove.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 BackgroundWorker backgroundWorker=new BackgroundWorker(context);
-                backgroundWorker.execute("deleteOrder",orderItem.getId());
+                backgroundWorker.execute("changeStatus",orderItem.getId(),"2");
                 holder.given.setBackgroundColor(context.getResources().getColor(R.color.green));
             }
         });
         holder.preprocess.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                BackgroundWorker backgroundWorker=new BackgroundWorker(context);
+                backgroundWorker.execute("changeStatus",orderItem.getId(),"1");
                 holder.given.setBackgroundColor(context.getResources().getColor(R.color.yellow));
             }
         });
         holder.cancelled.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                BackgroundWorker backgroundWorker=new BackgroundWorker(context);
+                backgroundWorker.execute("changeStatus",orderItem.getId(),"3");
                 holder.given.setBackgroundColor(context.getResources().getColor(R.color.red));
             }
         });

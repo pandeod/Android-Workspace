@@ -1,24 +1,15 @@
 package com.example.onkarpande.mp_project.Activity;
 
-import android.content.Context;
-import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
-
-import com.example.onkarpande.mp_project.Entity.ItemMenu;
 import com.example.onkarpande.mp_project.R;
 
 import org.json.JSONArray;
@@ -29,9 +20,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.List;
 
-import static android.view.View.GONE;
 
 public class HistoryFragment extends Fragment {
 
@@ -93,7 +82,7 @@ public class HistoryFragment extends Fragment {
             @Override
             protected String doInBackground(Void... voids) {
                 try {
-                    URL url = new URL("http://vedh.hostingerapp.com/connect/getHistory.php");
+                    URL url = new URL("https://summarysite.000webhostapp.com/include/getAllorders.php");
                     HttpURLConnection con = (HttpURLConnection) url.openConnection();
                     StringBuilder sb = new StringBuilder();
                     BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(con.getInputStream()));
@@ -120,11 +109,19 @@ public class HistoryFragment extends Fragment {
             {
                 status="pending";
             }
-            else
+            else if(obj.getString("status").equals("1"))
+            {
+                status="preparing";
+            }
+            else if(obj.getString("status").equals("2"))
             {
                 status="completed";
             }
-            history[i] = "\nOrder No: "+obj.getString("id")+"\t\t\t\t\t\tTable : "+obj.getString("user")+"\n"+obj.getString("order")+"\nStatus : "+status+"\n";
+            else
+            {
+                status="cancelled";
+            }
+            history[i] = "\nOrder No: "+obj.getString("order_id")+"\t\t\t\t\t\tOrder by : "+obj.getString("user")+"\n"+obj.getString("ordered")+"\nStatus : "+status+"\n";
         }
             ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_list_item_1, history);
             listView.setAdapter(arrayAdapter);
