@@ -18,6 +18,8 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
+import me.anwarshahriar.calligrapher.Calligrapher;
+
 public class MainActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
@@ -28,6 +30,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        ReplaceFont.replaceDefaultFont(this,"DEFAULT","beyond_wonderland.ttf");
+
+        Calligrapher calligrapher=new Calligrapher(this);
+        calligrapher.setFont(this,"beyond_wonderland.ttf",true);
 
         orderItems=new ArrayList<>();
         recyclerView=findViewById(R.id.recycler_view);
