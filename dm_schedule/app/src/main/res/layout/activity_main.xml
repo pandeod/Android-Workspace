@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <include layout="@layout/base_toolbar"/>
+
+    <LinearLayout
+        android:animateLayoutChanges="true"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_width="match_parent">
+
+        <android.support.design.widget.CoordinatorLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/editTextParentLinearLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight=".5"
+                    android:background="?attr/colorPrimary"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+
+                    <onkarpande.android.com.dm_schedule.Utility.CustomTextInputLayout
+                        android:id="@+id/toDoCustomTextInput"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColorHint="#fff"
+                        android:gravity="center">
+
+                        <EditText
+                            android:id="@+id/userToDoEditText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="32dp"
+                            android:layout_marginRight="32dp"
+                            android:gravity="start|bottom"
+                            android:hint="Title"
+                            android:inputType="textAutoCorrect|textCapCharacters"
+                            android:lines="1"
+                            android:maxLines="1"
+                            android:textColor="#ffffff" />
+                    </onkarpande.android.com.dm_schedule.Utility.CustomTextInputLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/todoReminderAndDateContainerLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1.5"
+                    android:orientation="vertical">
+
+                    <onkarpande.android.com.dm_schedule.Utility.CustomTextInputLayout
+                        android:id="@+id/toDodescription"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="32dp"
+                        android:layout_marginLeft="32dp"
+                        android:layout_marginRight="32dp"
+                        android:textColorHint="#727272"
+                        android:gravity="center">
+
+                            <EditText
+                                android:id="@+id/description"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="start|bottom"
+                                android:hint="Description"
+                                android:inputType="textAutoCorrect|textCapSentences"
+                                android:lines="2"
+                                android:maxLines="2"
+                                android:textColor="#727272" />
+
+                    </onkarpande.android.com.dm_schedule.Utility.CustomTextInputLayout>
+
+                    <onkarpande.android.com.dm_schedule.Utility.CustomTextInputLayout
+                        android:id="@+id/toDoSyllabus"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="32dp"
+                        android:layout_marginRight="32dp"
+                        android:textColorHint="#727272"
+                        android:gravity="center">
+
+                        <EditText
+                            android:id="@+id/batches"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="start|bottom"
+                            android:hint="Batches"
+                            android:inputType="textAutoCorrect|textCapSentences"
+                            android:lines="1"
+                            android:maxLines="1"
+                            android:textColor="#727272" />
+
+                    </onkarpande.android.com.dm_schedule.Utility.CustomTextInputLayout>
+
+                    <onkarpande.android.com.dm_schedule.Utility.CustomTextInputLayout
+                        android:id="@+id/toDoBatches"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="32dp"
+                        android:layout_marginRight="32dp"
+                        android:textColorHint="#727272"
+                        android:gravity="center">
+
+                        <EditText
+                            android:id="@+id/syllabus"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="start|bottom"
+                            android:hint="syllabus"
+                            android:inputType="textAutoCorrect|textCapSentences"
+                            android:lines="1"
+                            android:maxLines="1"
+                            android:textColor="#727272" />
+
+                    </onkarpande.android.com.dm_schedule.Utility.CustomTextInputLayout>
+
+                    <LinearLayout
+                        android:id="@+id/toDoEnterDateLinearLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="36dp"
+                        android:layout_marginRight="36dp"
+                        android:animateLayoutChanges="true"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:orientation="horizontal"
+                            android:gravity="top">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="left"
+                                android:padding="0dp"
+                                android:textSize="18dp"
+                                android:text="Date"
+                                android:textColor="#727272" />
+
+                            <EditText
+                                android:id="@+id/newTodoDateEditText"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:editable="false"
+                                android:focusable="false"
+                                android:hint="Date"
+                                android:focusableInTouchMode="false"
+                                android:gravity="center"
+                                android:textIsSelectable="false" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:gravity="top">
+                            <EditText
+                                android:id="@+id/newTodoTimeEditText"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:editable="false"
+                                android:focusable="false"
+                                android:hint="Start Time"
+                                android:focusableInTouchMode="false"
+                                android:gravity="center"
+                                android:textIsSelectable="false" />
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight=".2"
+                                android:gravity="center"
+                                android:padding="4dp"
+                                android:text="To"
+                                android:textColor="?attr/colorAccent" />
+                            <EditText
+                                android:id="@+id/newTodoTimeEditText1"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:editable="false"
+                                android:focusable="false"
+                                android:hint="End Time"
+                                android:focusableInTouchMode="false"
+                                android:gravity="center"
+                                android:textIsSelectable="false" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/availability"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="start"
+                            android:text="availability"
+                            android:textColor="#00ff00"
+                            android:textSize="14sp" />
+
+                    </LinearLayout>
+
+                    <onkarpande.android.com.dm_schedule.Utility.CustomTextInputLayout
+                        android:id="@+id/toDoRoom"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="32dp"
+                        android:layout_marginLeft="32dp"
+                        android:layout_marginRight="32dp"
+                        android:textColorHint="#727272"
+                        android:gravity="center">
+
+                        <EditText
+                            android:id="@+id/room"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="start|bottom"
+                            android:hint="Labs"
+                            android:inputType="textAutoCorrect|textCapSentences"
+                            android:lines="1"
+                            android:maxLines="1"
+                            android:textColor="#727272" />
+                    </onkarpande.android.com.dm_schedule.Utility.CustomTextInputLayout>
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/makeToDoFloatingActionButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:src="@drawable/ic_send_black_24dp"
+                app:fabSize="normal"
+                app:layout_anchor="@id/editTextParentLinearLayout"
+                app:layout_anchorGravity="bottom|right" />
+        </android.support.design.widget.CoordinatorLayout>
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>
